@@ -106,7 +106,7 @@ public class VentanaListaDoble extends JFrame implements ActionListener
 						{
 							try 
 							{
-								insertar=new ventanaInsertar(1);
+								insertar=new ventanaInsertar(1, lista);
 								insertar.setVisible(true);
 							} 
 							catch (Exception e) 
@@ -123,7 +123,7 @@ public class VentanaListaDoble extends JFrame implements ActionListener
 						{
 							try 
 							{
-								insertar=new ventanaInsertar(2);
+								insertar=new ventanaInsertar(2, lista);
 								insertar.setVisible(true);
 							} 
 							catch (Exception e) 

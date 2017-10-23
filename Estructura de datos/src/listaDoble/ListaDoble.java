@@ -35,39 +35,44 @@ public class ListaDoble
 		this.cabeza=nuevo;
 	}
 	
-	public void insertarPrincipio(NodoDoble nuevo)
+	public boolean insertarPrincipio(NodoDoble nuevo)
 	{
+		boolean bandera=false;
 		
 		if(this.isVacio())
 		{
 			this.insertar(nuevo);
+			bandera=true;
 		}
 		else
 		{
 			nuevo.setSiguiente(this.cabeza);
 			this.cabeza.setAnterior(nuevo);
 			this.cabeza=nuevo;
+			bandera=true;
 		}
+		
+		return bandera;
 	}
 	
 	public StringBuilder imprimir() 
 	{
 		StringBuilder cadena=new StringBuilder();
-		cadena.append("Cabeza-->");
+		cadena.append("--Cabeza--\n");
 		NodoDoble temporal=this.cabeza;
 		
 		while(temporal!=null) 
 		{
-			cadena.append("Nombre: "+temporal.getNombre()+" ");
-			cadena.append("Id: "+temporal.getId()+" ");
-			cadena.append("Álbum: "+temporal.getAlbum()+" ");
-			cadena.append("Artista: "+temporal.getArtista()+" ");
-			cadena.append("Género: "+temporal.getGenero()+" ");
+			cadena.append("\t-Nombre: "+temporal.getCancion().getNombre()+" ");
+			cadena.append("Id: "+temporal.getCancion().getId()+" ");
+			cadena.append("Álbum: "+temporal.getCancion().getAlbum()+" ");
+			cadena.append("Artista: "+temporal.getCancion().getArtista()+" ");
+			cadena.append("Género: "+temporal.getCancion().getGenero()+" ");
 			cadena.append("\n");
 			temporal=temporal.getSiguiente();
 		}
 		
-		cadena.append("NULL");
+		cadena.append("--NULL--");
 		return cadena;
 	}
 

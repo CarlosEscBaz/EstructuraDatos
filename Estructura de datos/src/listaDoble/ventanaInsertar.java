@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -29,10 +30,13 @@ public class ventanaInsertar extends JFrame implements ActionListener
 	private JLabel lblGnero;
 	private JButton btn_aceptar;
 	int op2=0;
+	private VentanaListaDoble principal;
 	private ListaDoble lista;
 
-	public ventanaInsertar(int op) 
+	public ventanaInsertar(int op, ListaDoble l) 
 	{
+		this.lista=l;
+		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 300, 400);
 		contentPane = new JPanel();
@@ -116,7 +120,8 @@ public class ventanaInsertar extends JFrame implements ActionListener
 		if (e.getSource()==btn_aceptar)
 		{
 			
-			NodoDoble nuevo=new NodoDoble();
+			NodoDoble nuevoNodo=new NodoDoble();
+			Cancion nuevo=new Cancion();
 			
 			nuevo.setId(Integer.parseInt(tf_id.getText()));
 			nuevo.setNombre(tf_nombre.getText());
@@ -124,7 +129,16 @@ public class ventanaInsertar extends JFrame implements ActionListener
 			nuevo.setAlbum(tf_album.getText());
 			nuevo.setGenero(tf_genero.getText());
 			
-			lista.insertarPrincipio(nuevo);
+			nuevoNodo.setCancion(nuevo);
+			
+			if (lista.insertarPrincipio(nuevoNodo))
+			{
+				JOptionPane.showMessageDialog(null, "Ingresado", "Listo", JOptionPane.INFORMATION_MESSAGE);
+			}
+			else
+			{
+				JOptionPane.showMessageDialog(null, "Ingresado", "Error", JOptionPane.ERROR_MESSAGE);
+			}
 			
 			dispose();
 		}
