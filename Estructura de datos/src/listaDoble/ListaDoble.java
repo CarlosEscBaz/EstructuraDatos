@@ -75,6 +75,14 @@ public class ListaDoble
 		return bandera;
 	}
 	
+	public boolean eliminarPrimerNodo()
+	{
+		boolean bandera=false;
+		
+		
+		return bandera;
+	}
+	
 	public StringBuilder imprimirAdelante() 
 	{
 		StringBuilder cadena=new StringBuilder();

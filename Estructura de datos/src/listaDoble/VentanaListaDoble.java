@@ -63,8 +63,7 @@ public class VentanaListaDoble extends JFrame implements ActionListener
 				"3.- Eliminar primer nodo", 
 				"4.- Eliminar último nodo",
 				"5.- Recorrido hacia adelante",
-				"6.- Recorrido hacia atrás",
-				"7.- Imprimir"
+				"6.- Recorrido hacia atrás"
 				};
 		
 		cb_op = new JComboBox(A);
