@@ -55,7 +55,27 @@ public class ListaDoble
 		return bandera;
 	}
 	
-	public StringBuilder imprimir() 
+	public boolean insertarFinal(NodoDoble nuevo)
+	{
+		boolean bandera=false;
+		
+		if(this.isVacio())
+		{
+			this.insertar(nuevo);
+			bandera=true;
+		}
+		else
+		{
+			nuevo.setSiguiente(null);
+			nuevo.setAnterior(this.cabeza);
+			this.cabeza.setSiguiente(nuevo);
+			bandera=true;
+		}
+		
+		return bandera;
+	}
+	
+	public StringBuilder imprimirAdelante() 
 	{
 		StringBuilder cadena=new StringBuilder();
 		cadena.append("--Cabeza--\n");
@@ -73,6 +93,32 @@ public class ListaDoble
 		}
 		
 		cadena.append("--NULL--");
+		return cadena;
+	}
+	
+	public StringBuilder imprimirAtras() 
+	{
+		StringBuilder cadena=new StringBuilder();
+		cadena.append("--Fin de la lista--\n");
+		NodoDoble temporal=this.cabeza;
+		
+		while (temporal.getSiguiente()!=null)
+		{
+			temporal=temporal.getSiguiente();
+		}
+		
+		while(temporal!=null) 
+		{
+			cadena.append("\t-Nombre: "+temporal.getCancion().getNombre()+" ");
+			cadena.append("Id: "+temporal.getCancion().getId()+" ");
+			cadena.append("Álbum: "+temporal.getCancion().getAlbum()+" ");
+			cadena.append("Artista: "+temporal.getCancion().getArtista()+" ");
+			cadena.append("Género: "+temporal.getCancion().getGenero()+" ");
+			cadena.append("\n");
+			temporal=temporal.getAnterior();
+		}
+		
+		cadena.append("--CABEZA--");
 		return cadena;
 	}
 

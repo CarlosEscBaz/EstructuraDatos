@@ -119,28 +119,54 @@ public class ventanaInsertar extends JFrame implements ActionListener
 	{
 		if (e.getSource()==btn_aceptar)
 		{
-			
 			NodoDoble nuevoNodo=new NodoDoble();
 			Cancion nuevo=new Cancion();
 			
-			nuevo.setId(Integer.parseInt(tf_id.getText()));
-			nuevo.setNombre(tf_nombre.getText());
-			nuevo.setArtista(tf_artista.getText());
-			nuevo.setAlbum(tf_album.getText());
-			nuevo.setGenero(tf_genero.getText());
-			
-			nuevoNodo.setCancion(nuevo);
-			
-			if (lista.insertarPrincipio(nuevoNodo))
+			switch (op2)
 			{
-				JOptionPane.showMessageDialog(null, "Ingresado", "Listo", JOptionPane.INFORMATION_MESSAGE);
+			case 1:
+					
+					
+					nuevo.setId(Integer.parseInt(tf_id.getText()));
+					nuevo.setNombre(tf_nombre.getText());
+					nuevo.setArtista(tf_artista.getText());
+					nuevo.setAlbum(tf_album.getText());
+					nuevo.setGenero(tf_genero.getText());
+					
+					nuevoNodo.setCancion(nuevo);
+					
+					if (lista.insertarPrincipio(nuevoNodo))
+					{
+						JOptionPane.showMessageDialog(null, "Ingresado", "Listo", JOptionPane.INFORMATION_MESSAGE);
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null, "No ingresado", "Error", JOptionPane.ERROR_MESSAGE);
+					}
+					
+					dispose();
+				break;
+			case 2:
+					nuevo.setId(Integer.parseInt(tf_id.getText()));
+					nuevo.setNombre(tf_nombre.getText());
+					nuevo.setArtista(tf_artista.getText());
+					nuevo.setAlbum(tf_album.getText());
+					nuevo.setGenero(tf_genero.getText());
+					
+					nuevoNodo.setCancion(nuevo);
+					
+					if (lista.insertarFinal(nuevoNodo))
+					{
+						JOptionPane.showMessageDialog(null, "Ingresado", "Listo", JOptionPane.INFORMATION_MESSAGE);
+					}
+					else
+					{
+						JOptionPane.showMessageDialog(null, "No ingresado", "Error", JOptionPane.ERROR_MESSAGE);
+					}
+					
+					dispose();
+				break;
 			}
-			else
-			{
-				JOptionPane.showMessageDialog(null, "Ingresado", "Error", JOptionPane.ERROR_MESSAGE);
-			}
-			
-			dispose();
 		}
 		
 	}

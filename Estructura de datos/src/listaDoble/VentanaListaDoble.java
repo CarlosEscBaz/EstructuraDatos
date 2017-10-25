@@ -93,6 +93,7 @@ public class VentanaListaDoble extends JFrame implements ActionListener
 		if (e.getSource()==btn_aceptar)
 		{
 			int op = cb_op.getSelectedIndex();
+			String texto="";
 			
 			switch (op)
 			{
@@ -133,8 +134,12 @@ public class VentanaListaDoble extends JFrame implements ActionListener
 						}
 					});
 				break;
-			case 7:
-					String texto=lista.imprimir().toString();
+			case 5:
+					texto=lista.imprimirAdelante().toString();
+					ta_lista.setText(texto);
+				break;
+			case 6:
+					texto=lista.imprimirAtras().toString();
 					ta_lista.setText(texto);
 				break;
 			}
