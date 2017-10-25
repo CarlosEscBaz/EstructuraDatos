@@ -93,6 +93,7 @@ public class VentanaListaDoble extends JFrame implements ActionListener
 		{
 			int op = cb_op.getSelectedIndex();
 			String texto="";
+			int op2;
 			
 			switch (op)
 			{
@@ -132,6 +133,24 @@ public class VentanaListaDoble extends JFrame implements ActionListener
 							}
 						}
 					});
+				break;
+			case 3:
+					op2 = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea eliminar el nodo?", "Confirmar", JOptionPane.WARNING_MESSAGE);
+					
+					if (op2==0)
+					{
+						lista.eliminarPrimerNodo();
+						JOptionPane.showMessageDialog(null, "Nodo eliminado", "Listo", JOptionPane.INFORMATION_MESSAGE);
+					}
+				break;
+			case 4: 
+					op2 = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea eliminar el nodo?", "Confirmar", JOptionPane.WARNING_MESSAGE);
+					
+					if (op2==0)
+					{
+						lista.eliminarUltimoNodo();
+						JOptionPane.showMessageDialog(null, "Nodo eliminado", "Listo", JOptionPane.INFORMATION_MESSAGE);
+					}
 				break;
 			case 5:
 					texto=lista.imprimirAdelante().toString();

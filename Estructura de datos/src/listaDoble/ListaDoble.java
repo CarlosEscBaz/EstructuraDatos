@@ -67,20 +67,37 @@ public class ListaDoble
 		else
 		{
 			nuevo.setSiguiente(null);
-			nuevo.setAnterior(this.cabeza);
-			this.cabeza.setSiguiente(nuevo);
+			NodoDoble temporal=this.cabeza;
+			
+			while (temporal.getSiguiente()!=null)
+			{
+				temporal=temporal.getSiguiente();
+			}
+			temporal.setSiguiente(nuevo);
+			nuevo.setAnterior(temporal);
 			bandera=true;
 		}
 		
 		return bandera;
 	}
 	
-	public boolean eliminarPrimerNodo()
+	public void eliminarPrimerNodo()
+	{		
+		NodoDoble temporal=this.cabeza.getSiguiente();
+		temporal.setAnterior(null);
+		this.cabeza=temporal;
+		
+	}
+	
+	public void eliminarUltimoNodo()
 	{
-		boolean bandera=false;
+		NodoDoble temporal=this.cabeza;
 		
-		
-		return bandera;
+		while (temporal.getSiguiente()!=null)
+		{
+			temporal=temporal.getSiguiente();
+		}
+		temporal.getAnterior().setSiguiente(null);
 	}
 	
 	public StringBuilder imprimirAdelante() 
