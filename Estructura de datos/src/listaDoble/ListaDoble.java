@@ -103,47 +103,67 @@ public class ListaDoble
 	public StringBuilder imprimirAdelante() 
 	{
 		StringBuilder cadena=new StringBuilder();
-		cadena.append("--Cabeza--\n");
-		NodoDoble temporal=this.cabeza;
 		
-		while(temporal!=null) 
+		
+		if (this.isVacio())
 		{
-			cadena.append("\t-Nombre: "+temporal.getCancion().getNombre()+" ");
-			cadena.append("Id: "+temporal.getCancion().getId()+" ");
-			cadena.append("Álbum: "+temporal.getCancion().getAlbum()+" ");
-			cadena.append("Artista: "+temporal.getCancion().getArtista()+" ");
-			cadena.append("Género: "+temporal.getCancion().getGenero()+" ");
-			cadena.append("\n");
-			temporal=temporal.getSiguiente();
+			cadena.append("Lista vacía");
 		}
-		
-		cadena.append("--NULL--");
+		else
+		{
+			cadena.append("--Cabeza--\n");
+			NodoDoble temporal=this.cabeza;
+			
+			while(temporal!=null) 
+			{
+				
+				
+				cadena.append("\t-Nombre: "+temporal.getCancion().getNombre()+" ");
+				cadena.append("Id: "+temporal.getCancion().getId()+" ");
+				cadena.append("Álbum: "+temporal.getCancion().getAlbum()+" ");
+				cadena.append("Artista: "+temporal.getCancion().getArtista()+" ");
+				cadena.append("Género: "+temporal.getCancion().getGenero()+" ");
+				cadena.append("\n");
+				temporal=temporal.getSiguiente();
+			}
+			cadena.append("--NULL--");
+		}
 		return cadena;
+		
 	}
 	
 	public StringBuilder imprimirAtras() 
 	{
 		StringBuilder cadena=new StringBuilder();
-		cadena.append("--Fin de la lista--\n");
-		NodoDoble temporal=this.cabeza;
 		
-		while (temporal.getSiguiente()!=null)
+		if (this.isVacio())
 		{
-			temporal=temporal.getSiguiente();
+			cadena.append("Lista vacía");
+		}
+		else
+		{
+			cadena.append("--Fin de la lista--\n");
+			NodoDoble temporal=this.cabeza;
+			
+			while (temporal.getSiguiente()!=null)
+			{
+				temporal=temporal.getSiguiente();
+			}
+			
+			while(temporal!=null) 
+			{
+				cadena.append("\t-Nombre: "+temporal.getCancion().getNombre()+" ");
+				cadena.append("Id: "+temporal.getCancion().getId()+" ");
+				cadena.append("Álbum: "+temporal.getCancion().getAlbum()+" ");
+				cadena.append("Artista: "+temporal.getCancion().getArtista()+" ");
+				cadena.append("Género: "+temporal.getCancion().getGenero()+" ");
+				cadena.append("\n");
+				temporal=temporal.getAnterior();
+			}
+			
+			cadena.append("--CABEZA--");
 		}
 		
-		while(temporal!=null) 
-		{
-			cadena.append("\t-Nombre: "+temporal.getCancion().getNombre()+" ");
-			cadena.append("Id: "+temporal.getCancion().getId()+" ");
-			cadena.append("Álbum: "+temporal.getCancion().getAlbum()+" ");
-			cadena.append("Artista: "+temporal.getCancion().getArtista()+" ");
-			cadena.append("Género: "+temporal.getCancion().getGenero()+" ");
-			cadena.append("\n");
-			temporal=temporal.getAnterior();
-		}
-		
-		cadena.append("--CABEZA--");
 		return cadena;
 	}
 
