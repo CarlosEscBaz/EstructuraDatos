@@ -186,7 +186,7 @@ public class ListaSimple {
 	public StringBuilder imprimir() 
 	{
 		StringBuilder cadena=new StringBuilder();
-		cadena.append("Cabeza-->");
+		cadena.append("Tope-->");
 		NodoSimple temporal=this.cabeza;
 		
 		while(temporal!=null) 
